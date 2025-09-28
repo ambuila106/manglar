@@ -1,43 +1,45 @@
 "use client";
 
 import '@/assets/index.css'
-import {useState, useEffect} from 'react';
+import {useEffect} from 'react';
+import DeckGLGoogleMap from './components/DeckGLGoogleMap';
+import TurfBezierMap from './components/TurfBezierMap';
+import Image from 'next/image';
 
 
 export default function Home() {
-  const [count, setCount] = useState(0)
-
   useEffect(() => {
     console.log('El componente se ha montado');
-    console.log('El valor de count es:', count);
-
   }, [])
 
-  function addCount(){
-    setCount(count + 1)
-  }
-
   return (
-    <main>
-      <section className='main'>
-        <h1 className='text-3xl font-bold title'>
-          Manglar
-        </h1>
+    <main className='p-5'>
+      <Image
+        src='https://www.manglar.com/wp-content/uploads/2023/04/manglar-2023.svg'
+        alt='manglar logo'
+        width={400}
+        height={500}
+        className='manglar-logo mb-5'
+      />
 
-        <iframe
-          width="800"
-          height="400"
-          frameBorder="0"
-          style={{ border: 0 }}
-          referrerPolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBnbL1EnGF4I0lX_4GmKjOBlNYFmSR7aKk&q=Eiffel+Tower,Paris+France"
-          allowFullScreen
-        />
+      <p className='presentation d-flex flex-col items-center mb-8 mt-4'>
+        This is a demo of integrating <strong>deck.gl</strong> with <strong>Google Maps</strong> and using <strong>Turf.js</strong> to create Bezier curves between points.
+        <br />
+        This was focused on Mexico and specifically the Sinaloa region, highlighting agricultural areas.
+      </p>
 
-
+      <section className="text-xl font-semibold mb-4 d-flex flex-col items-center">
+        <div className="deck-gl" style={{ marginBottom: '20px', width: '100%', height: '600px' }}>
+          <h2 className='mb-4'>Deck.gl + Google Maps Integration</h2>
+          <DeckGLGoogleMap />
+        </div>
+        
+        <div className="turf" style={{ marginBottom: '20px', width: '90%', height: '600px' }}>
+          <h2 className='mb-4'>Turf.js + Deck.gl with Bezier Curves</h2>
+          <TurfBezierMap />
+        </div>
       </section>
 
     </main>
   );
-}
 }

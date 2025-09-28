@@ -1,12 +1,26 @@
 .title {
-    text-align: center;
-    margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section {
+  display: flex;
+  width: 100%;
+  max-width: 800px;
+}
+
+.manglar-logo {
+  width: 200px;
+  height: auto;
+}
+
+.presentation {
+  max-width: 800px;
 }
